@@ -11,6 +11,7 @@ const path = require("path");
 
 mongoose
   .connect("mongodb://localhost/kebabDb", { useNewUrlParser: true })
+
   .then(x => {
     console.log(
       `Connected to Mongo! Database name: "${x.connections[0].name}"`
@@ -19,6 +20,22 @@ mongoose
   .catch(err => {
     console.error("Error connecting to mongo", err);
   });
+
+// SHIT HERE TO FIX: can't connect 2nd DB
+
+/*
+  mongoose
+  .connect("mongodb://localhost/userDb", { useNewUrlParser: true })
+
+  .then(x => {
+    console.log(
+      `Connected to Mongo! Database name: "${x.connections[1].name}"`
+    );
+  })
+  .catch(err => {
+    console.error("Error connecting to mongo", err);
+  });
+*/
 
 const app_name = require("./package.json").name;
 const debug = require("debug")(
