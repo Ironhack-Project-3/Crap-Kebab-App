@@ -1,10 +1,9 @@
 const mongoose = require("mongoose")
 
-const Kebab = require("../models/kebab")
-const User = require("../models/user")
+const Kebab = require("../models/kebab.js")
+const User = require("../models/user.js")
 
 mongoose.connect(`mongodb://localhost/kebabDb`)
-mongoose.connect(`mongodb://localhost/userDb`)
 
 Kebab.collection.drop()
 User.collection.drop()
@@ -100,7 +99,15 @@ const Kebabs = [
 
 ]
 
-
+User
+  .create(Users)
+  .then(allUsers => {
+    console.log(`User is added`)
+    mongoose.connection.close()
+  })
+  .catch(error => {
+    throw new Error(`User is not added. ${error}`)
+  })
 
 Kebab
   .create(Kebabs)
@@ -113,12 +120,3 @@ Kebab
   })
 
 
-User
-  .create(Users)
-  .then(allUsers => {
-    console.log(`User is added`)
-    mongoose.connection.close()
-  })
-  .catch(error => {
-    throw new Error(`User is not added. ${error}`)
-  })

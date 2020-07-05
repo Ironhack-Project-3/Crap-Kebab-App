@@ -24,8 +24,7 @@ const kebabSchema = new Schema({
         date: Date 
     }],
 
-}
-)
+})
 
 const Kebab = mongoose.model('Kebab', kebabSchema)
 module.exports = Kebab 

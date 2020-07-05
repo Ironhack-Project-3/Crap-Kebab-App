@@ -21,22 +21,6 @@ mongoose
     console.error("Error connecting to mongo", err);
   });
 
-// SHIT HERE TO FIX: can't connect 2nd DB
-
-/*
-  mongoose
-  .connect("mongodb://localhost/userDb", { useNewUrlParser: true })
-
-  .then(x => {
-    console.log(
-      `Connected to Mongo! Database name: "${x.connections[1].name}"`
-    );
-  })
-  .catch(err => {
-    console.error("Error connecting to mongo", err);
-  });
-*/
-
 const app_name = require("./package.json").name;
 const debug = require("debug")(
   `${app_name}:${path.basename(__filename).split(".")[0]}`
@@ -57,15 +41,18 @@ app.use(require('node-sass-middleware')({
 }));
 
 // Express Session setup
-const session = require('express-session');
-const MongoStore = require('connect-mongo')(session);
+const sessionKebab = require('express-session');
+const MongoStoreKebab = require('connect-mongo')(sessionKebab);
+
+const sessionUser = require('express-session');
+const MongoStoreUser = require('connect-mongo')(sessionUser);
 
 // Import of the model Recipe from './models/Recipe.model.js'
 const Kebab = require('./models/kebab');
 const User = require('./models/user');
 
 app.use(
-  session({
+  sessionKebab({
     secret: process.env.SESSION_SECRET,
     cookie: { maxAge: 24 * 60 * 60 * 1000 },
     // session is uninitialized when it is new but not modified - default is false
@@ -73,7 +60,22 @@ app.use(
     //Forces the session to be saved back to the session store, 
     // even if the session was never modified during the request.
     resave: true,
-    store: new MongoStore({
+    store: new MongoStoreKebab({
+      //When the session cookie has an expiration date, connect-mongo will use it.
+      // Otherwise, it will create a new one, using ttl option - here ttl is one day.
+      mongooseConnection: mongoose.connection,
+      ttl: 24 * 60 * 60 * 1000
+    })
+  }),
+  sessionUser({
+    secret: process.env.SESSION_SECRET,
+    cookie: { maxAge: 24 * 60 * 60 * 1000 },
+    // session is uninitialized when it is new but not modified - default is false
+    saveUninitialized: false,
+    //Forces the session to be saved back to the session store, 
+    // even if the session was never modified during the request.
+    resave: true,
+    store: new MongoStoreUser({
       //When the session cookie has an expiration date, connect-mongo will use it.
       // Otherwise, it will create a new one, using ttl option - here ttl is one day.
       mongooseConnection: mongoose.connection,
