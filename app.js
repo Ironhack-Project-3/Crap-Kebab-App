@@ -10,7 +10,7 @@ const logger = require("morgan");
 const path = require("path");
 
 mongoose
-  .connect("mongodb://localhost/basic-auth", { useNewUrlParser: true })
+  .connect("mongodb://localhost/kebabDb", { useNewUrlParser: true })
   .then(x => {
     console.log(
       `Connected to Mongo! Database name: "${x.connections[0].name}"`
@@ -33,9 +33,19 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 
+app.use(require('node-sass-middleware')({
+  src:  path.join(__dirname, 'public'),
+  dest: path.join(__dirname, 'public'),
+  sourceMap: true
+}));
+
 // Express Session setup
 const session = require('express-session');
 const MongoStore = require('connect-mongo')(session);
+
+// Import of the model Recipe from './models/Recipe.model.js'
+const Kebab = require('./models/kebab');
+const User = require('./models/user');
 
 app.use(
   session({
@@ -68,7 +78,7 @@ app.use(
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "hbs");
 app.use(express.static(path.join(__dirname, "public")));
-app.use(favicon(path.join(__dirname, "public", "images", "favicon.ico")));
+//app.use(favicon(path.join(__dirname, "public", "images", "favicon.ico")));
 
 // default value for title local
 app.locals.title = "Express - Generated with IronGenerator";
@@ -80,3 +90,9 @@ const authRoutes = require("./routes/auth");
 app.use("/", authRoutes);
 
 module.exports = app;
+
+
+// SHOULD NOT BE USED BUT MEH...
+app.listen(3000, () => {
+  console.log(`Server: listening - port 3000`)  
+});
