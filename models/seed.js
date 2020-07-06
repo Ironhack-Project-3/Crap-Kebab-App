@@ -1,14 +1,18 @@
 const mongoose = require("mongoose")
 
-const Kebab = require("../models/kebab.js")
-const User = require("../models/user.js")
+const Kebab = require("../models/kebab")
+const User = require("../models/user")
 
-mongoose.connect(`mongodb://localhost/kebabDb`)
+mongoose.connect(`mongodb://localhost/kebabDb`, {
+  useCreateIndex: true,
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+});
 
 Kebab.collection.drop()
 User.collection.drop()
 
-const User = [
+const Users = [
   {
     userName: 'test',
     password: 'testtest'
