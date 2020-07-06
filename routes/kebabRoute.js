@@ -1,29 +1,27 @@
 const express = require('express');
-
 const router = express.Router();
 const newKebab = require('../models/kebab');
+const Kebabs = require('../models/kebab');
 
-//------------------------------------------------------get to new kebab form
+//------------------------------------------------------new form
 router.get("/newKebab", (req, res) => {
   newKebab
   .find()
   .then((kebab) => {
-    console.log(kebab);
-    res.render("newKebab/show", {kebab: kebab});
+    res.render("newKebab/index", {kebab: kebab});
   })
- // res.render("newKebab/index");
-});
-
-router.get("/newKebab/show", (req, res) => {
-  res.render("newKebab/show");
 });
 
 router.get("/newKebab/new", (req, res) => {
   res.render("newKebab/new");
 });
 
-router.get("/newKebab/edit", (req, res) => {
-  res.render("newKebab/edit");
+router.get("/newKebab/index", (req, res) => {
+  newKebab
+  .find()
+  .then((kebab) => {
+    res.render("newKebab/index", {kebab: kebab});
+  })
 });
 
 
@@ -48,7 +46,7 @@ router.post("/newKebab/new", (req, res) => {
 
   }).then((kebabmodel) => {
     console.log(`Success! ${shopName} was added to the database.`);
-    res.redirect("/profile");
+    res.redirect("/newKebab/index");
   }).catch((err) => {
     console.log(err);
   })
@@ -58,7 +56,7 @@ router.post("/newKebab/new", (req, res) => {
 router.post('/newKebab/:id/delete', (req, res, next) => {
   Kebabs.findByIdAndRemove(req.params.id)
     .then(() => {
-      res.redirect('/profile');
+      res.redirect("/newKebab/index");
     })
     .catch(err => {
       console.log(err);
@@ -66,21 +64,33 @@ router.post('/newKebab/:id/delete', (req, res, next) => {
 });
 
 
+router.get("/newKebab/edit/:id", (req, res)=> {
+     Kebabs.findOne(req.params._id)
+   .then(kebabmodel => {
+       res.render("../views/newKebab/edit.hbs", {
+         Kebabs: kebabmodel
+       });
+     })
+     .catch(err => {
+       console.log(err);
+     })
+})
+
 //------------------------------------------------------edit
-router.get('/newKebab/:_id/edit'), (req, res, next) => {
-  Kebabs.findOne(req.params._id)
-    .then(celebmodel => {
-      res.render('/newKebab/edit', {
-        Kebabs: kebabmodel
-      });
-    })
-    .catch(err => {
-      console.log(err);
-    })
-};
+ router.get('/newKebab/:id/edit'), (req, res, next) => {
+   Kebabs.findOne(req.params._id)
+     .then(kebabmodel => {
+       res.render('/newKebab/edit', {
+         Kebabs: kebabmodel
+       });
+     })
+     .catch(err => {
+       console.log(err);
+     })
+ };
 
 //-----------------------------------------------------post edit 
-router.post('/newKebab/:_id/edit', (req, res) => {
+router.post('/newKebab/:id/edit', (req, res) => {
   const {
     shopName,
     picture,
@@ -99,6 +109,7 @@ router.post('/newKebab/:_id/edit', (req, res) => {
       comments
     })
     .then(kebabmodel => {
+      console.log(`Success! ${shopName} was edited in the database.`);
       res.redirect(`/newKebab/${kebabId}`);
     })
     .catch(err => {
