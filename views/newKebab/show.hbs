@@ -1,8 +1,8 @@
 <h1>Kebab shop page</h1>
 
 
-{{#each kebabmodel}}
-{{shopName}}<br>
+{{#each kebab}}
+{{this.shopName}}<br>
 {{picture}}<br>
 {{review}}<br>
 {{address}}<br>
@@ -10,7 +10,7 @@
 {{comments}}<br>
 {{/each}}
 
-DELETE BUTTON SOMEWHERE...
+<p>delete button somewhere</p>
 
 <a href="/newKebab/new">New kebab shop</a><br>
 <a href="/newKebab/edit">Edit kebab shop</a><br>
