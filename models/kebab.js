@@ -2,6 +2,7 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const kebabSchema = new Schema({
+
     shopName: {
         type: String
     },
@@ -15,8 +16,7 @@ const kebabSchema = new Schema({
         type: String
     },
     coord: [{
-        long: Number,
-        lat: Number,
+        type: Number,
     }],
     comments: [{ 
         title: String,

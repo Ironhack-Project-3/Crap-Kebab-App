@@ -14,6 +14,20 @@ const loginCheck = () => {
     }
   }
 }
+/*
+router.get("/celebrities", (req, res) => {
+  Celebs.find()
+    .then((celebmodel) => {
+      console.log(Celebs, celebmodel);
+      res.render("celebrities", {
+        CelebList: celebmodel
+      });
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+});
+*/
 
 router.get('/profile', loginCheck(), (req, res) => {
   console.log('this is the cookie: ', req.cookies);

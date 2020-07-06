@@ -1,0 +1,13 @@
+<h1>Kebab shop page</h1>
+<h2>{{#each KebabList}}
+    <p><a href="/newKebab/{{_id}}">{{this.shopName}}</a></p>
+    <form action="/newKebab/{{_id}}/delete" method="POST">
+    <button type="submit">Delete</button>
+    </form>
+    <form action="/newKebab/{{_id}}/edit" method="GET">
+    <button type="submit">Edit</button>
+    </form>
+{{/each}}</h2>
+<a href="/newKebab/new">Add a kebab shop</a><br>
+<a href="/newKebab/edit">Edit kebab shop</a><br>
+<a href="/profile">Back to main page</a>

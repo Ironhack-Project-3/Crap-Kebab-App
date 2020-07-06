@@ -47,7 +47,7 @@ const MongoStoreKebab = require('connect-mongo')(sessionKebab);
 const sessionUser = require('express-session');
 const MongoStoreUser = require('connect-mongo')(sessionUser);
 
-// Import of the model Recipe from './models/Recipe.model.js'
+// Import of the model Recipe from './models/...'
 const Kebab = require('./models/kebab');
 const User = require('./models/user');
 
@@ -108,10 +108,7 @@ app.use("/", index);
 const authRoutes = require("./routes/auth");
 app.use("/", authRoutes);
 
-module.exports = app;
+const newKebab = require("./routes/kebabRoute");
+app.use("/", newKebab);
 
-
-// SHOULD NOT BE USED BUT MEH...
-app.listen(3000, () => {
-  console.log(`Server: listening - port 3000`)  
-});
+module.exports = app

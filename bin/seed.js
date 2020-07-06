@@ -9,8 +9,8 @@ mongoose.connect(`mongodb://localhost/kebabDb`, {
   useUnifiedTopology: true,
 });
 
-Kebab.collection.drop()
-User.collection.drop()
+//Kebab.collection.drop()
+//User.collection.drop()
 
 const Users = [
   {
@@ -26,10 +26,7 @@ const Kebabs = [
     picture: "some link to the image",
     review: 1,
     address: "Lobeckstraße 36-40, 10969 Berlin",
-    coord: [{
-      long: 13.40,
-      lat: 52.52
-    }],
+    coord: [],
     comments: [{
       title: `Horrible title`,
       body: 'Horrible body',
@@ -42,10 +39,7 @@ const Kebabs = [
     picture: "some link to the image",
     review: 1,
     address: "Lobeckstraße 36-40, 10969 Berlin",
-    coord: [{
-      long: 13.40,
-      lat: 52.52
-    }],
+    coord: [],
     comments: [{
       title: `Horrible title`,
       body: 'Horrible body',
@@ -58,10 +52,7 @@ const Kebabs = [
     picture: "some link to the image",
     review: 1,
     address: "Lobeckstraße 36-40, 10969 Berlin",
-    coord: [{
-      long: 13.40,
-      lat: 52.52
-    }],
+    coord: [],
     comments: [{
       title: `Horrible title`,
       body: 'Horrible body',
@@ -74,10 +65,7 @@ const Kebabs = [
     picture: "some link to the image",
     review: 1,
     address: "Lobeckstraße 36-40, 10969 Berlin",
-    coord: [{
-      long: 13.40,
-      lat: 52.52
-    }],
+    coord: [],
     comments: [{
       title: `Horrible title`,
       body: 'Horrible body',
@@ -90,10 +78,7 @@ const Kebabs = [
     picture: "some link to the image",
     review: 1,
     address: "Lobeckstraße 36-40, 10969 Berlin",
-    coord: [{
-      long: 13.40,
-      lat: 52.52
-    }],
+    coord: [],
     comments: [{
       title: `Horrible title`,
       body: 'Horrible body',
