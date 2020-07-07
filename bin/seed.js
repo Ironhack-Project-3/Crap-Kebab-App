@@ -12,16 +12,13 @@ mongoose.connect(`mongodb://localhost/kebabDb`, {
 //Kebab.collection.drop()
 //User.collection.drop()
 
-const Users = [
-  {
-  }
-];
+const Users = [{}];
 
 const Kebabs = [
 
   {
     shopName: "Greasy shot",
-    picture: "some link to the image",
+    picture: "https://res.cloudinary.com/dpqkayvki/image/upload/v1594124127/Krapp/8_owjrmn.jpg",
     review: 1,
     address: "Otto-Schmirgal-Str. 1, 10319 Berlin",
     coord: [],
@@ -34,7 +31,7 @@ const Kebabs = [
 
   {
     shopName: "Horse glue",
-    picture: "some link to the image",
+    picture: "https://res.cloudinary.com/dpqkayvki/image/upload/v1594124127/Krapp/5_cjhmqu.jpg",
     review: 1,
     address: "Friedrichstr. 101, 10117 Berlin",
     coord: [],
@@ -47,7 +44,7 @@ const Kebabs = [
 
   {
     shopName: "Rat's paradise",
-    picture: "some link to the image",
+    picture: "https://res.cloudinary.com/dpqkayvki/image/upload/v1594124127/Krapp/9_vculbq.jpg",
     review: 3,
     address: "Prenzlauer Allee 32, 10405 Berlin",
     coord: [],
@@ -60,7 +57,7 @@ const Kebabs = [
 
   {
     shopName: "Rubber chew",
-    picture: "some link to the image",
+    picture: "https://res.cloudinary.com/dpqkayvki/image/upload/v1594124127/Krapp/7_xcmdqc.jpg",
     review: 2,
     address: "Wilmersdorfer Str. 129, 10627 Berlin",
     coord: [],
@@ -73,7 +70,7 @@ const Kebabs = [
 
   {
     shopName: "We also serve food",
-    picture: "some link to the image",
+    picture: "https://res.cloudinary.com/dpqkayvki/image/upload/v1594124126/Krapp/1_llf08i.jpg",
     review: 1,
     address: "Pfarrstr. 116, 10317 Berlin",
     coord: [],
@@ -81,6 +78,71 @@ const Kebabs = [
       title: `4.50 EURO DÖNER???!!!`,
       body: 'Wird von Jahr zu Jahr teurer... also die Preise werden wirklich immer dreister und ich kenne Yuppies seit der Eröffnung. Das Essen ist halt billiges Fastfood vor allem die Chinapfanne: Finger weg! das lohnt sich es nicht für den Preis... überfettet, kaum Gemüse...',
       date: '11.06.19'
+    }],
+  },
+
+  {
+    shopName: "Bremsflüssigkeitd",
+    picture: "https://res.cloudinary.com/dpqkayvki/image/upload/v1594124126/Krapp/2_ont95n.jpg",
+    review: 1,
+    address: "An der Putlitzbrücke, 13353 Berlin",
+    coord: [],
+    comments: [{
+      title: `Hundefutter`,
+      body: 'Ok der Laden war jetzt nicht Mega voll aber das Angebot ist vielfältig . Preislich gesehen ist aber ein Döner mit Doppelfleisch für 5 Euro schön heftig das muss ich einfach sagen ....',
+      date: '10.16.19'
+    }],
+  },
+
+  {
+    shopName: "Skidmark",
+    picture: "https://res.cloudinary.com/dpqkayvki/image/upload/v1594124126/Krapp/3_nfrvzq.jpg",
+    review: 1,
+    address: "Rudolstädter Str. 93, 10713 Berlin",
+    coord: [],
+    comments: [{
+      title: `schrecklich`,
+      body: 'Kein stern. Hab 2 malvon dort döner gekauft und beides weg geschmissen leider. Bedienung sehr freundlich aber... Naja geschmackssache',
+      date: '09.11.19'
+    }],
+  },
+
+  {
+    shopName: "Beefmä́ßig",
+    picture: "https://res.cloudinary.com/dpqkayvki/image/upload/v1594124126/Krapp/4_qztji2.jpg",
+    review: 2,
+    address: "Tauentzienstraße 21-24, 10789 Berlin",
+    coord: [],
+    comments: [{
+      title: `Nie wieder`,
+      body: 'Schade. Von außen sieht das Bistro gar nicht so schlecht aus, es gibt sogar ein paar Tische und Stühle vor dem Laden. Der Döner ist mit 3,80€ aber viel zu teuer für das, was geboten wird. Billiges Brot, wenig Salat, keine besonders guten Soßen. Der Döner schmeckte nach nicht viel.',
+      date: '01.02.19'
+    }],
+  },
+
+  {
+    shopName: "Geschmacksverstärker",
+    picture: "https://res.cloudinary.com/dpqkayvki/image/upload/v1594124126/Krapp/6_lm2bfr.jpg",
+    review: 1,
+    address: "Hasenheide 54, 10967 Berlin",
+    coord: [],
+    comments: [{
+      title: `abstoßend`,
+      body: 'dunklen Ecken das Restaurant. Hackfleisch-Grau-Dönerspieß, trostlose. Salatauslagen am der Theke, 2 angetrocknete gefüllte Auberginen und der Hähnchengrill',
+      date: '09.08.17'
+    }],
+  },
+
+  {
+    shopName: "Immodium",
+    picture: "https://res.cloudinary.com/dpqkayvki/image/upload/v1594124126/Krapp/0_tustb5.jpg",
+    review: 2,
+    address: "Tamara-Danz-Straße 11, 10243 Berlin",
+    coord: [],
+    comments: [{
+      title: `war es essbar?`,
+      body: 'habe 2x dort gegessen und 2x durchfall bekommen ausserdem ist das fleisch das billigste und der salat sieht ziemlich labrig aus. Dazu stehen da noch 2 geldspielautomatrn da kommt man sich wie in einem casino vor',
+      date: '11.12.19'
     }],
   },
 
@@ -105,5 +167,3 @@ Kebab
   .catch(error => {
     throw new Error(`Kebab shop is not added. ${error}`)
   })
-
-
