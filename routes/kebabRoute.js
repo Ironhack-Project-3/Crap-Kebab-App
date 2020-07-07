@@ -70,8 +70,9 @@ router.post('/newKebab/:id/delete', (req, res, next) => {
 //------------------------------------------------------edit
 
 router.get("/newKebab/edit/:id", (req, res) => {
-  Kebabs.findOne(req.params._id)
+  Kebabs.findById(req.params.id)
     .then(kebabmodel => {
+      console.log(kebabmodel);
       res.render("../views/newKebab/edit.hbs", {
         kebabs: kebabmodel
       });

@@ -14,8 +14,6 @@ mongoose.connect(`mongodb://localhost/kebabDb`, {
 
 const Users = [
   {
-    userName: 'test',
-    password: 'testtest'
   }
 ];
 
