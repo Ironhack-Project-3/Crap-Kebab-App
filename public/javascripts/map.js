@@ -5,3 +5,4 @@ style: 'mapbox://styles/racheldlt/ckc7nnvnc1ax01ioofuneje0f', // stylesheet loca
 center: [13.399557, 52.510008], // starting position [lng, lat]
 zoom: 11.1 // starting zoom
 });
+
