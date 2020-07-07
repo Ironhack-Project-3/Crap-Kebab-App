@@ -21,7 +21,7 @@ const kebabSchema = new Schema({
     comments: [{ 
         title: String,
         body: String, 
-        date: Date 
+        date: String 
     }],
 
 })

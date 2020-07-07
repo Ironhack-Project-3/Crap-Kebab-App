@@ -1,13 +1,17 @@
 <h1>kebabmodel shop details</h1>
 
 <h4>
-    {{ kebabmodel.shopName }}
-    {{ kebabmodel.picture }}<br>
+    {{ kebabmodel.shopName }}<br>
+    <img src="{{ kebabmodel.picture }}" alt="Kebab image"><br>
     {{ kebabmodel.review }}<br>
     {{ kebabmodel.address }}<br>
     {{ kebabmodel.coord }}<br>
-    {{ kebabmodel.comments }}<br>
+    {{#each kebabmodel.comments}}
+    {{title}}<br>
+    {{body}}<br>
+    {{date}}<br>
+    {{/each}}
 </h4>
 
-<a href="/newkebabmodel/index">Back to kebabmodel page</a><br>
+<a href="/newKebab/index">Back to kebab page</a><br>
 <a href="/profile">Back to main page</a>
