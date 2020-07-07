@@ -6,10 +6,12 @@ const Kebabs = require('../models/kebab');
 //------------------------------------------------------new form
 router.get("/newKebab", (req, res) => {
   newKebab
-  .find()
-  .then((kebab) => {
-    res.render("newKebab/index", {kebab: kebab});
-  })
+    .find()
+    .then((kebab) => {
+      res.render("newKebab/index", {
+        kebab: kebab
+      });
+    })
 });
 
 router.get("/newKebab/new", (req, res) => {
@@ -18,10 +20,12 @@ router.get("/newKebab/new", (req, res) => {
 
 router.get("/newKebab/index", (req, res) => {
   newKebab
-  .find()
-  .then((kebab) => {
-    res.render("newKebab/index", {kebab: kebab});
-  })
+    .find()
+    .then((kebab) => {
+      res.render("newKebab/index", {
+        kebab: kebab
+      });
+    })
 });
 
 
@@ -63,34 +67,23 @@ router.post('/newKebab/:id/delete', (req, res, next) => {
     })
 });
 
+//------------------------------------------------------edit
 
-router.get("/newKebab/edit/:id", (req, res)=> {
-     Kebabs.findOne(req.params._id)
-   .then(kebabmodel => {
-       res.render("../views/newKebab/edit.hbs", {
-         Kebabs: kebabmodel
-       });
-     })
-     .catch(err => {
-       console.log(err);
-     })
+router.get("/newKebab/edit/:id", (req, res) => {
+  Kebabs.findOne(req.params._id)
+    .then(kebabmodel => {
+      res.render("../views/newKebab/edit.hbs", {
+        kebabs: kebabmodel
+      });
+    })
+    .catch(err => {
+      console.log(err);
+    })
 })
 
-//------------------------------------------------------edit
- router.get('/newKebab/:id/edit'), (req, res, next) => {
-   Kebabs.findOne(req.params._id)
-     .then(kebabmodel => {
-       res.render('/newKebab/edit', {
-         Kebabs: kebabmodel
-       });
-     })
-     .catch(err => {
-       console.log(err);
-     })
- };
-
 //-----------------------------------------------------post edit 
-router.post('/newKebab/:id/edit', (req, res) => {
+
+router.post('/newKebab/edit/:id', (req, res, next) => {
   const {
     shopName,
     picture,
@@ -99,8 +92,9 @@ router.post('/newKebab/:id/edit', (req, res) => {
     coord,
     comments
   } = req.body;
-  const kebabId = req.params._id;
-  Celebs.findByIdAndUpdate(kebabId, {
+  const kebabId = req.params.id;
+  console.log()
+  Kebabs.findByIdAndUpdate(kebabId, {
       shopName,
       picture,
       review,
@@ -109,17 +103,19 @@ router.post('/newKebab/:id/edit', (req, res) => {
       comments
     })
     .then(kebabmodel => {
+      console.log(kebabmodel)
       console.log(`Success! ${shopName} was edited in the database.`);
-      res.redirect(`/newKebab/${kebabId}`);
+      res.redirect(`/newKebab/index`);
     })
     .catch(err => {
       console.log(err);
     });
 })
 
+
 // ------------------------------------------------------individual kebab details
 router.get("/newKebab/:id", (req, res) => {
-  Celebs.findById(req.params.id)
+  Kebabs.findById(req.params.id)
     .then((kebabmodel) => {
       console.log(kebabmodel);
       res.render("newKebab/show", {
