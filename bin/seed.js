@@ -23,12 +23,12 @@ const Kebabs = [
     shopName: "Greasy shot",
     picture: "some link to the image",
     review: 1,
-    address: "Lobeckstraße 36-40, 10969 Berlin",
+    address: "Otto-Schmirgal-Str. 1, 10319 Berlin",
     coord: [],
     comments: [{
-      title: `Horrible title`,
-      body: 'Horrible body',
-      date: '01.01.20'
+      title: `NIE MALS`,
+      body: 'Ich reduzier auf 11/2 Sterne..(3.9.2014) Typisch Döner Station halt. Man kann drinnen und draußen sitzen. Der Döner schmeckt recht gut. Drei Spielautomaten sind vorhanden. Durchaus eine Alternative zum Tierpark Bistro und McDonalds und auch Kaisers gibt es hier ja nicht mehr...',
+      date: '03.09.14'
     }],
   },
 
@@ -36,11 +36,11 @@ const Kebabs = [
     shopName: "Horse glue",
     picture: "some link to the image",
     review: 1,
-    address: "Lobeckstraße 36-40, 10969 Berlin",
+    address: "Friedrichstr. 101, 10117 Berlin",
     coord: [],
     comments: [{
-      title: `Horrible title`,
-      body: 'Horrible body',
+      title: `Kotzen essen`,
+      body: 'Der Laden betreibt offensichtlich Preisabsprachen. Unabhängig von der Qualität des Essen kann ich daher keine Punkte geben, da ein solches Verhalten wettbewerbswidrig ist.',
       date: '01.01.20'
     }],
   },
@@ -48,26 +48,26 @@ const Kebabs = [
   {
     shopName: "Rat's paradise",
     picture: "some link to the image",
-    review: 1,
-    address: "Lobeckstraße 36-40, 10969 Berlin",
+    review: 3,
+    address: "Prenzlauer Allee 32, 10405 Berlin",
     coord: [],
     comments: [{
-      title: `Horrible title`,
-      body: 'Horrible body',
-      date: '01.01.20'
+      title: `Es stinkt zu holle`,
+      body: 'Einmal rein und rückwärts wieder raus, WAS FÜR EIN GRAUS! Es stinkt wirklich fürchterlich nach Rauch!',
+      date: '05.21.19'
     }],
   },
 
   {
     shopName: "Rubber chew",
     picture: "some link to the image",
-    review: 1,
-    address: "Lobeckstraße 36-40, 10969 Berlin",
+    review: 2,
+    address: "Wilmersdorfer Str. 129, 10627 Berlin",
     coord: [],
     comments: [{
-      title: `Horrible title`,
-      body: 'Horrible body',
-      date: '01.01.20'
+      title: `Sorry aber wie scheiße seid ihr?`,
+      body: 'Essen dürfen wir nicht mehr bei euch aber verkaufen geht? Ganz klasse für einen zweitklassigen Döner - herzlichen Glückwunsch - nie wieder bei euch!!! Ps das Fleisch ist quasi ungenießbar - Qualität zahlt sich am Ende aus - versucht es mal damit wenn der Service schon versagt!',
+      date: '11.15.18'
     }],
   },
 
@@ -75,12 +75,12 @@ const Kebabs = [
     shopName: "We also serve food",
     picture: "some link to the image",
     review: 1,
-    address: "Lobeckstraße 36-40, 10969 Berlin",
+    address: "Pfarrstr. 116, 10317 Berlin",
     coord: [],
     comments: [{
-      title: `Horrible title`,
-      body: 'Horrible body',
-      date: '01.01.20'
+      title: `4.50 EURO DÖNER???!!!`,
+      body: 'Wird von Jahr zu Jahr teurer... also die Preise werden wirklich immer dreister und ich kenne Yuppies seit der Eröffnung. Das Essen ist halt billiges Fastfood vor allem die Chinapfanne: Finger weg! das lohnt sich es nicht für den Preis... überfettet, kaum Gemüse...',
+      date: '11.06.19'
     }],
   },
 
