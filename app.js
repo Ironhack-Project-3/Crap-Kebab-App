@@ -47,7 +47,7 @@ const MongoStoreKebab = require('connect-mongo')(sessionKebab);
 const sessionUser = require('express-session');
 const MongoStoreUser = require('connect-mongo')(sessionUser);
 
-// Import of the model Recipe from './models/...'
+// Import of the model Kebab from './models/...'
 const Kebab = require('./models/kebab');
 const User = require('./models/user');
 
