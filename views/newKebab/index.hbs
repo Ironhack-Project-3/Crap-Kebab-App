@@ -1,11 +1,14 @@
-<h1>Kebab shop page</h1>
-{{#each kebab}}
-<h3><a href="/newKebab/{{_id}}">{{shopName}}</a></h3>
+<h1 class="big">Kebab shop page</h1>
+<a class="button" href="/newKebab/new">Add a kebab shop</a><br>
+<a class="button" href="/profile">Back to main page</a>
 
-<h4>
-    <img src="{{picture}}" alt="Kebab image"><br>
-    {{review}}<br>
-    {{address}}<br>
+{{#each kebab}}
+
+<div class="reviews">
+    <h3><a href="/newKebab/{{_id}}">{{shopName}}</a></h3>
+    <img style='width: 300px;' src="{{picture}}" alt="Kebab image"><br>
+    <p>Rating out of 5 stars: {{review}} stars</p>
+    {{address}}
     {{coord}}<br>
     {{#each comments}}
     {{title}}<br>
@@ -13,23 +16,20 @@
     {{date}}<br>
     {{/each}}
     <input value="{{address}}">
-</h4>
+</div>
 
-<div id="map" style='width: 500px; height: 500px;'></div>
+<div id="map" style='width: 100%; height: 300px;'></div>
 
 <form action="/newKebab/{{_id}}/delete" method="POST">
-    <button type="submit">Delete</button>
+    <button class="button" type="submit">Delete</button>
+</form>
+<form runat="server" action="/newKebab/edit/{{_id}}" method="GET">
+    <button class="button" type="submit">Edit</button>
 </form>
 
-<form runat="server" action="/newKebab/edit/{{_id}}" method="GET">
-    <button type="submit">Edit</button>
-</form>
-<br>
-<br>
 {{/each}}
 
-<a href="/newKebab/new">Add a kebab shop</a><br>
-<a href="/profile">Back to main page</a>
+
 
 <script>
     let addresses = []
