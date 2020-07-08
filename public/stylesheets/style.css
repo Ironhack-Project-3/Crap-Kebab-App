@@ -1,9 +1,7 @@
 /* body {
-  padding: 50px;
-  font: 10px "Lucida Grande", Helvetica, Arial, sans-serif;
+ width: 1000px;
 } */
 
-/* $keycolor:#03384b; */
 
 a {
   font-family: 'Teko', sans-serif;
@@ -14,32 +12,33 @@ li {
   font-family: 'Open Sans', sans-serif;
 }
 
-/* label {
-  font-family: 'Open Sans', sans-serif;
-} */
-
 h1 {
   font-family: 'Teko', sans-serif;
+  color: black;
 }
 
 .big{
   font-size: 6em;
+  padding-top: 15px;
+  margin: auto;
+  /* padding-top: auto;
+  margin-left: 10px; */
 }
+
+.big-left{
+  font-size: 6em;
+  padding-top: 15px;
+  display: flex;
+  align-items: left;
+  margin-left: 10px;
+}
+
 
 span {
   display: flex;
   align-content: space-around;
 }
 
-/* .button {
-  border-radius: 100em;
-  text-align: center;
-  position: relative;
-  padding: .2em .5em;
-  color: black;
-  border: 1.7px solid black;
-  display: inline-block;
-} */
 
 .button {
   border-radius: 100em;
@@ -64,8 +63,8 @@ input {
 }
 
 label {
-  font-family: 'Teko', sans-serif; 
-  font-size: 2em;
+  font-size: 1.5em;
+  margin-right: 10px;
 }
 
 .reviews {
@@ -88,22 +87,25 @@ label {
   margin-bottom: 50px;
 } */
 
-.new-form {
-  width: 700px;
+.centerme {
+  margin-top: 30px;
   display: flex;
-  flex-direction: columngi;
-  flex-wrap: nowrap;
-  justify-content: space-evenly;
+  flex-direction: column;
   align-items: center;
-  align-content: center;
+}
+
+.new-form {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: left;
 }
 
 .NForm {
-  margin-bottom: 50px;
-  /* display: flex;
-  flex-direction: ;
-  align-items: flex-end;
-  justify-content: end; */
+  margin-bottom: 25px;
+  font-family: 'Open Sans', sans-serif;
+  display: flex;
+  align-items: center;
 }
 
 textarea {
@@ -113,4 +115,29 @@ textarea {
   color: black;
   border: 1.7px solid black;
   display: inline-block;
+}
+
+.nav-links {
+  display: flex;
+  flex-direction: row;
+  /* align-items: flex-end;   */
+  margin: 0px 10px 0px 10px;
+  /* justify-content: left; */
+}
+
+nav {
+  height: 100px;
+  background-color: #FF7F00;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	align-content: center;
+}
+
+.craplogo {
+  margin-right: 50px;
+}
+
+.signup {
+  
 }

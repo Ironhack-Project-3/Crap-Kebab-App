@@ -1,3 +1,16 @@
+
+<nav class="nav">
+    <img style="height: 100px;" src="https://res.cloudinary.com/dpqkayvki/image/upload/v1594220042/Krapp/icon-04_hlgowi.svg" alt="navicon">
+    <h1 style="object-fit: contain;" class="big">KRAPP LOCATIONS{{#if user}}{{user.username}}{{/if}}</h1>
+    <div class="nav-links">
+        <a class="button" href="/newKebab/new">Add</a><br>
+        <a class="button" href="/profile">Main</a>
+    </div>
+</nav>
+
+<div class="centerme">
+{{#each kebab}}
+
 <h1 class="big">Kebab shop page</h1>
 <a class="button" href="/newKebab/new">Add a kebab shop</a><br>
 <a class="button" href="/profile">Back to main page</a>
@@ -24,17 +37,14 @@
     <input value="{{address}}">
 </div>
 
-<div id="map" style='width: 100%; height: 300px;'></div>
-
 <form action="/newKebab/{{_id}}/delete" method="POST">
     <button class="button" type="submit">Delete</button>
 </form>
 <form runat="server" action="/newKebab/edit/{{_id}}" method="GET">
     <button class="button" type="submit">Edit</button>
 </form>
-
 {{/each}}
-
+</div>
 
 
 <script>
@@ -43,3 +53,5 @@
         addresses.push(elem.value)
     })
 </script>
+
+
