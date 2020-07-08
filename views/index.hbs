@@ -1,12 +1,12 @@
 
 {{!-- <h1>{{title}}</h1> --}}
-<h1 class="display-4 text-center">Welcome {{#if user}}{{user.username}}{{/if}}</h1>
-<div class="container">
+<h1 class="big">Welcome {{#if user}}{{user.username}}{{/if}}</h1>
+<div>
     {{#unless user}}
-    <a class="d-flex justify-content-left" href="/signup">Signup</a>
-    <a class="d-flex justify-content-left" href="/login">Login</a>
+    <a class="button" href="/signup">Signup</a>
+    <a class="button" href="/login">Login</a>
     {{else}}
-    <a class="d-flex justify-content-left" href="/private">Private</a>
-    <a class="d-flex justify-content-left"href="/logout">Logout</a>
+    <a class="button" href="/private">Private</a>
+    <a class="button" href="/logout">Logout</a>
     {{/unless}}
 </div>
