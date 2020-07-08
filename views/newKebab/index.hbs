@@ -1,8 +1,15 @@
+
 <h1 class="big">Kebab shop page</h1>
 <a class="button" href="/newKebab/new">Add a kebab shop</a><br>
 <a class="button" href="/profile">Back to main page</a>
 
+<h1>Kebab shop page</h1>
+
+
+
 {{#each kebab}}
+
+<h3><a href="/newKebab/{{_id}}">{{shopName}}</a></h3>
 
 <div class="reviews">
     <h3><a href="/newKebab/{{_id}}">{{shopName}}</a></h3>
@@ -37,3 +44,9 @@
         addresses.push(elem.value)
     })
 </script>
+
+<br>
+
+
+<a href="/newKebab/new">Add a kebab shop</a><br>
+<a href="/profile">Back to main page</a>

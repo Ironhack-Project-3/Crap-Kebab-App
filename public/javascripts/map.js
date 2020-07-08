@@ -47,9 +47,7 @@
 // }
 
 // loadMap();
-document.querySelectorAll("div").forEach(elem => {
-   console.log( elem.value)
-})
+
 
 
 mapboxgl.accessToken = 'pk.eyJ1IjoicmFjaGVsZGx0IiwiYSI6ImNrYzdsMG9qZTBxOGMyc2xqMzV2ejd1czEifQ.4f9dZK4w0vGTCrStvdKzlQ';
@@ -58,7 +56,7 @@ var mapboxClient = mapboxSdk({
 });
 mapboxClient.geocoding
     .forwardGeocode({
-        query: `change`,
+        query: `${currentAddress}`,
         autocomplete: false,
         limit: 1
     })
@@ -76,7 +74,7 @@ mapboxClient.geocoding
                 container: 'map',
                 style: 'mapbox://styles/mapbox/streets-v11',
                 center: feature.center,
-                zoom: 14
+                zoom: 10
             });
             new mapboxgl.Marker().setLngLat(feature.center).addTo(map);
         }
