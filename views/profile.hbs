@@ -1,7 +1,16 @@
 
-<h1 class="big">
-   Crap Kebab App
-</h1>
+
+<nav class="nav">
+    <img style="height: 100px;" src="https://res.cloudinary.com/dpqkayvki/image/upload/v1594220042/Krapp/icon-04_hlgowi.svg" alt="navicon">
+    <h1 style="object-fit: contain;" class="big">KRAPP {{#if user}}{{user.username}}{{/if}}</h1>
+    <span class="flexbutton">
+        <a class="button" href="/newKebab/new">Add</a>
+        <a class="button" href="/newKebab">Reviews</a> 
+        <a class="button" href="/logout">Logout</a>     
+    </span>
+</nav>
+
+
 
 {{!--------------------- this is where the map will live  -------------------------}}
 
@@ -9,11 +18,7 @@
 
 
 
-<span class="flexbutton">
-    <a class="button" href="/newKebab/new">Add an Imbiss</a>
-    <a class="button" href="/newKebab">Reviews</a> 
-    <a class="button" href="/logout">Logout</a>     
-</span>
+
 
 
 
