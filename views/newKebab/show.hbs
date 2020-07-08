@@ -11,9 +11,19 @@
     {{body}}<br>
     {{date}}<br>
     {{/each}}
+
+    <input id="address" value="{{kebabmodel.address}}">
+
 </h4>
 
-<div id="map" style = 'width: 500px; height: 500px;' ></div>
+    <script>
+        let currentAddress = document.getElementById("address").value;
+        console.log("what", currentAddress)
+    </script>
+
+
+
+<div id="map" style='width: 500px; height: 500px;'></div>
 
 <a href="/newKebab/index">Back to kebab page</a><br>
 <a href="/profile">Back to main page</a>

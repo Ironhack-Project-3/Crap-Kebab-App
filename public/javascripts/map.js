@@ -56,7 +56,7 @@ var mapboxClient = mapboxSdk({
 });
 mapboxClient.geocoding
     .forwardGeocode({
-        query: `${kebabmodel.address}`,
+        query: `${currentAddress}`,
         autocomplete: false,
         limit: 1
     })
