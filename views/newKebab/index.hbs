@@ -1,5 +1,7 @@
 <h1>Kebab shop page</h1>
+
 {{#each kebab}}
+
 <h3><a href="/newKebab/{{_id}}">{{shopName}}</a></h3>
 
 <h4>
@@ -12,10 +14,8 @@
     {{body}}<br>
     {{date}}<br>
     {{/each}}
-    <input value="{{address}}">
-</h4>
 
-<div id="map" style='width: 500px; height: 500px;'></div>
+</h4>
 
 <form action="/newKebab/{{_id}}/delete" method="POST">
     <button type="submit">Delete</button>
@@ -25,15 +25,8 @@
     <button type="submit">Edit</button>
 </form>
 <br>
-<br>
+
 {{/each}}
 
 <a href="/newKebab/new">Add a kebab shop</a><br>
 <a href="/profile">Back to main page</a>
-
-<script>
-    let addresses = []
-    document.querySelectorAll("input").forEach(elem => {
-        addresses.push(elem.value)
-    })
-</script>
