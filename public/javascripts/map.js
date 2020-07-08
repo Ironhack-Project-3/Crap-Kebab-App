@@ -47,10 +47,9 @@
 // }
 
 // loadMap();
-
-
-
-//const client = new MapboxClient('pk.eyJ1IjoicmFjaGVsZGx0IiwiYSI6ImNrYzdsMG9qZTBxOGMyc2xqMzV2ejd1czEifQ.4f9dZK4w0vGTCrStvdKzlQ');
+document.querySelectorAll("div").forEach(elem => {
+   console.log( elem.value)
+})
 
 
 mapboxgl.accessToken = 'pk.eyJ1IjoicmFjaGVsZGx0IiwiYSI6ImNrYzdsMG9qZTBxOGMyc2xqMzV2ejd1czEifQ.4f9dZK4w0vGTCrStvdKzlQ';
@@ -59,7 +58,7 @@ var mapboxClient = mapboxSdk({
 });
 mapboxClient.geocoding
     .forwardGeocode({
-        query: 'kreuzbergstraße 48 10965',
+        query: `change`,
         autocomplete: false,
         limit: 1
     })
