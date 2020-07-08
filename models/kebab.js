@@ -7,7 +7,7 @@ const kebabSchema = new Schema({
         type: String
     },
     picture: {
-        type:String
+        type: String
     },
     review: {
         type: Number
@@ -18,13 +18,13 @@ const kebabSchema = new Schema({
     coord: [{
         type: Number,
     }],
-    comments: [{ 
+    comments: [{
         title: String,
-        body: String, 
-        date: String 
+        body: String,
+        date: String
     }],
 
 })
 
 const Kebab = mongoose.model('Kebab', kebabSchema)
-module.exports = Kebab 
+module.exports = Kebab
