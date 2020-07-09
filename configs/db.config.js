@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 mongoose
-  .connect('mongodb://localhost/kebabDb', {
+  .connect(process.env.MONGODB_URI || 'mongodb://localhost/kebabDb', {
     useCreateIndex: true,
     useNewUrlParser: true,
     useUnifiedTopology: true
