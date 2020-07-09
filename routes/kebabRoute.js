@@ -22,6 +22,7 @@ router.get("/newKebab/index", (req, res) => {
   newKebab
     .find()
     .then((kebab) => {
+      console.log("hello");
       res.render("newKebab/index", {
         kebab: kebab
       });
@@ -50,7 +51,7 @@ router.post("/newKebab/new", (req, res) => {
 
   }).then((kebabmodel) => {
     console.log(`Success! ${shopName} was added to the database.`);
-    res.redirect("/newKebab/index");
+    res.redirect("/newKebab/");
   }).catch((err) => {
     console.log(err);
   })
@@ -60,7 +61,7 @@ router.post("/newKebab/new", (req, res) => {
 router.post('/newKebab/:id/delete', (req, res, next) => {
   Kebabs.findByIdAndRemove(req.params.id)
     .then(() => {
-      res.redirect("/newKebab/index");
+      res.redirect("/newKebab/");
     })
     .catch(err => {
       console.log(err);
@@ -106,7 +107,7 @@ router.post('/newKebab/edit/:id', (req, res, next) => {
     .then(kebabmodel => {
       console.log(kebabmodel)
       console.log(`Success! ${shopName} was edited in the database.`);
-      res.redirect(`/newKebab/index`);
+      res.redirect(`/newKebab/`);
     })
     .catch(err => {
       console.log(err);

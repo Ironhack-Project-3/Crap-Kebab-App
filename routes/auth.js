@@ -48,7 +48,7 @@ router.post('/signup', (req, res, next) => {
         .then(dbUser => {
           // log the user in by saving it in the session
           req.session.user = dbUser;
-          res.redirect('/profile')
+          res.redirect('/newKebab')
         })
         .catch(err => {
           next(err);
@@ -88,7 +88,7 @@ router.post('/login', (req, res, next) => {
     if (bcrypt.compareSync(password, userFromDB.password)) {
       // password and the hash match
       req.session.user = userFromDB;
-      res.redirect('/profile');
+      res.redirect('/newKebab');
     } else {
       // the password from the input and the password from the database don't match
       res.render('login', {
