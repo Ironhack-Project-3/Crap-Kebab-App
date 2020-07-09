@@ -8,6 +8,12 @@
     </div>
 </nav>
 
+{{> map }}
+
+<script>
+    let markerList=[];
+</script>
+
 <div class="centerme">
 
 <h1 class="big">Kebab shop page</h1>
@@ -42,5 +48,14 @@
 <form runat="server" action="/newKebab/edit/{{_id}}" method="GET">
     <button class="button" type="submit">Edit</button>
 </form>
+
+<script>
+    markerList.push({
+        title: '{{shopName}}',
+        coord: '{{coord}}',
+        address: '{{address}}',
+    });
+</script>
+
 {{/each}}
 </div>
