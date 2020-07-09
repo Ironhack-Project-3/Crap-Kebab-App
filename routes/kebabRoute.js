@@ -39,15 +39,15 @@ router.post("/newKebab/new", (req, res) => {
     review,
     address,
     coord,
-    comments
   } = req.body;
+  const comment = {title: req.body.title, body: req.body.body, date: req.body.date} 
   newKebab.create({
     shopName: shopName,
     picture: picture,
     review: review,
     address: address,
-    coord: [],
-    comments: []
+    coord: coord,
+    comments: [comment]
 
   }).then((kebabmodel) => {
     console.log(`Success! ${shopName} was added to the database.`);
