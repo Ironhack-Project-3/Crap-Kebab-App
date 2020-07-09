@@ -108,6 +108,14 @@ label {
   align-items: center;
 }
 
+.NForm-margin {
+  margin-bottom: 25px;
+  margin-top: 25px;
+  font-family: 'Open Sans', sans-serif;
+  display: flex;
+  align-items: center;
+}
+
 textarea {
   border-radius: 1em;
   position: relative;

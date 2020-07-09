@@ -1,9 +1,6 @@
-<nav class="nav">
-    <img style="height: 100px;" src="https://res.cloudinary.com/dpqkayvki/image/upload/v1594220042/Krapp/icon-04_hlgowi.svg" alt="navicon">
-    <h1 class="big-left">KRAPP {{#if user}}{{user.username}}{{/if}}</h1>
-</nav>
+{{> nav }}
 
-<span style="margin-top: 200px;" class="centerme">
+<span style="margin-top: 150px;" class="centerme">
     <form class="new-form" action="/signup" method="post">
     <div class="NForm">
         <label for="username">Username: </label>
@@ -13,7 +10,7 @@
         <label for="password">Password: </label>
         <input type="password" name="password" id="password">
     </div>
-    <div class="NForm">
+    <div class="NForm-margin">
         <button class="button" type="submit">Sign up</button>
     </div>
     </form>

@@ -15,7 +15,7 @@
 
 <div class="centerme">
 
-<h1 class="big">Kebab shop page</h1>
+
 
 {{#each kebab}}
 
@@ -30,7 +30,7 @@
     {{body}}<br>
     {{date}}<br>
     {{/each}}
-    <input value="{{address}}">
+    {{!-- <input value="{{address}}"> --}}
 </div>
 
 <form action="/newKebab/{{_id}}/delete" method="POST">
