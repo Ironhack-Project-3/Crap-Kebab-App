@@ -148,7 +148,7 @@ const Kebabs = [
 
 ]
 
-User
+/* User
   .create(Users)
   .then(allUsers => {
     console.log(`User is added`)
@@ -157,7 +157,7 @@ User
   .catch(error => {
     throw new Error(`User is not added. ${error}`)
   })
-
+ */
 Kebab
   .create(Kebabs)
   .then(allKebabs => {
