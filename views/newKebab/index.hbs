@@ -9,7 +9,6 @@
 </nav>
 
 <div class="centerme">
-{{#each kebab}}
 
 <h1 class="big">Kebab shop page</h1>
 <a class="button" href="/newKebab/new">Add a kebab shop</a><br>
@@ -45,13 +44,3 @@
 </form>
 {{/each}}
 </div>
-
-
-<script>
-    let addresses = []
-    document.querySelectorAll("input").forEach(elem => {
-        addresses.push(elem.value)
-    })
-</script>
-
-
