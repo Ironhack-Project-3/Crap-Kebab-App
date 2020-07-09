@@ -10,7 +10,7 @@ const logger = require("morgan");
 const path = require("path");
 
 mongoose
-  .connect("mongodb://localhost/kebabDb", {
+  .connect(process.env.MONGODB_URI || "mongodb://localhost/kebabDb", {
     useNewUrlParser: true
   })
 
