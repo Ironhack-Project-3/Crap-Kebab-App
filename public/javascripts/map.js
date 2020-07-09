@@ -2,28 +2,50 @@ mapboxgl.accessToken = 'pk.eyJ1IjoicmFjaGVsZGx0IiwiYSI6ImNrYzdsMG9qZTBxOGMyc2xqM
 var mapboxClient = mapboxSdk({
     accessToken: mapboxgl.accessToken
 });
-mapboxClient.geocoding
-    .forwardGeocode({
-        query: `${currentAddress}`,
-        autocomplete: false,
-        limit: 1
-    })
-    .send()
-    .then(function (response) {
-        if (
-            response &&
-            response.body &&
-            response.body.features &&
-            response.body.features.length
-        ) {
-            var feature = response.body.features[0];
+const map = new mapboxgl.Map({
+    container: 'map',
+    style: 'mapbox://styles/mapbox/streets-v11',
+    center: [13.399557, 52.510008],
+    zoom: 11.1
+});
 
-            var map = new mapboxgl.Map({
-                container: 'map',
-                style: 'mapbox://styles/mapbox/streets-v11',
-                center: feature.center,
-                zoom: 10
+function addPin(options) {
+    return new mapboxgl.Marker(options).setLngLat(options.coord).addTo(map);
+}
+
+function getCenter() {
+    return map.getCenter();
+}
+
+if(typeof markerList != "undefined"){
+    markerList.forEach( marker => {map
+        if (marker.lngLat) {
+            addPin({
+                coord: marker.coord
             });
-            new mapboxgl.Marker().setLngLat(feature.center).addTo(map);
+        } else {
+            mapboxClient.geocoding
+            .forwardGeocode({
+                query: `${marker.address}`,
+                autocomplete: false,
+                limit: 1
+            })
+            .send()
+            .then(function (response) {
+                if (
+                    response &&
+                    response.body &&
+                    response.body.features &&
+                    response.body.features.length
+                ) {
+                    var feature = response.body.features[0];
+                    addPin({
+                        coord: feature.center
+                    });
+                    new mapboxgl.Marker().setLngLat(feature.center).addTo(map);
+                    //map.setCenter(feature.center)
+                }
+            });
         }
     });
+}

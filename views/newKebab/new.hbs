@@ -46,11 +46,35 @@
 
 
 {{!--------------------- this is where the map will live  -------------------------}}
-{{!-- <div id='map' style='width: 100%; height: 500px;'></div> --}}
 
 
-{{!-- <script src="/javascripts/map.js"></script> --}}
 
-<a class="button" href="/newKebab/index">Back to döner index</a><br>
-<a class="button" href="/profile">Back to main page</a>
+
+<a href="/newKebab/index">Back to döner index</a><br>
+<a href="/profile">Back to main page</a>
+
+<button type="button" id="add-pin">Add Pin</button>
+
+
+<script>
+    document.getElementById('add-pin').addEventListener("click", () => {
+        const pin = addPin({
+            draggable: true,
+            coord: getCenter(),
+        })
+
+        document.getElementById('add-pin').disabled = true;
+
+
+        pin.on('drag', ()=>{
+            const coord = pin.getLngLat();
+            document.getElementById('coord').value = [coord.lat, coord.lng].join(', ')
+            //console.log(coord);
+        })
+    });
+</script>
+
+{{> map }}
+
+
 
