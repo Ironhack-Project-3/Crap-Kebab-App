@@ -10,7 +10,9 @@ const logger = require("morgan");
 const path = require("path");
 
 mongoose
-  .connect("mongodb://localhost/kebabDb", { useNewUrlParser: true })
+  .connect("mongodb://localhost/kebabDb", {
+    useNewUrlParser: true
+  })
 
   .then(x => {
     console.log(
@@ -31,11 +33,13 @@ const app = express();
 // Middleware Setup
 app.use(logger("dev"));
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.urlencoded({
+  extended: false
+}));
 app.use(cookieParser());
 
 app.use(require('node-sass-middleware')({
-  src:  path.join(__dirname, 'public'),
+  src: path.join(__dirname, 'public'),
   dest: path.join(__dirname, 'public'),
   sourceMap: true
 }));
@@ -54,7 +58,9 @@ const User = require('./models/user');
 app.use(
   sessionKebab({
     secret: process.env.SESSION_SECRET,
-    cookie: { maxAge: 24 * 60 * 60 * 1000 },
+    cookie: {
+      maxAge: 24 * 60 * 60 * 1000
+    },
     // session is uninitialized when it is new but not modified - default is false
     saveUninitialized: false,
     //Forces the session to be saved back to the session store, 
@@ -69,7 +75,9 @@ app.use(
   }),
   sessionUser({
     secret: process.env.SESSION_SECRET,
-    cookie: { maxAge: 24 * 60 * 60 * 1000 },
+    cookie: {
+      maxAge: 24 * 60 * 60 * 1000
+    },
     // session is uninitialized when it is new but not modified - default is false
     saveUninitialized: false,
     //Forces the session to be saved back to the session store, 
