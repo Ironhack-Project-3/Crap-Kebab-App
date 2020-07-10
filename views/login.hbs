@@ -1,6 +1,7 @@
 {{> nav }}
  
 <span style="margin-top: 150px;" class="centerme">
+    <p class="error" style="color: red">{{message}}</p><br>
     <form class="new-form" action="/login" method="post">
         <div class="NForm">
             <label for="username">Username: </label>
@@ -17,5 +18,4 @@
 </span>
 
 {{#if message}}
-<p style="color: red">{{message}}</p>
 {{/if}}

@@ -68,9 +68,27 @@ label {
 }
 
 .reviews {
-  width: 500px;
+  width: 800px;
+  display: flex;
   align-items: center;
   flex-direction: column;
+}
+
+.buttons {
+  display: flex;
+  justify-items: flex-end;
+  align-items: flex-end;
+  flex-direction: row;
+  margin-top: 10px;
+  margin-bottom: 100px;
+}
+
+.buttons-left {
+  display: flex;
+  flex-direction: row;
+  justify-items: left;
+  margin-top: 10px;
+  margin-bottom: 100px;
 }
 
 .flexbutton {
@@ -102,7 +120,7 @@ label {
 }
 
 .NForm {
-  margin-bottom: 25px;
+  margin-bottom: 10px;
   font-family: 'Open Sans', sans-serif;
   display: flex;
   align-items: center;
@@ -143,9 +161,45 @@ nav {
 }
 
 .craplogo {
-  margin-right: 50px;
+  margin-right: 60px;
 }
 
-/* .signup {
-  
+.error {
+	display: flex;
+  align-items: center;
+	align-content: center;
+}
+
+/* .blur {
+  filter: blur(2px);
+  transition: transform 1s;
+}
+.blur:hover {
+  transform: blur(0);
 } */
+
+
+
+/* .container img {
+	transition: all 0.5s;
+}
+.container img:hover {
+	filter: none;
+}
+.blur {
+  filter: blur(2px);
+  width: 300px;
+} */
+
+
+
+.blur {
+  width: 400px;
+  margin-bottom: 30px;
+  filter: blur(.3px);
+  transition: 0.01s ease-in-out;
+}
+.blur:hover {
+  filter: blur(0);
+  transition: 0.5s ease-in-out;
+}

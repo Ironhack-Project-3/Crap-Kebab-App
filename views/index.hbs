@@ -3,8 +3,8 @@
     <h1 style="object-fit: contain;" class="big">KRAPP {{#if user}}{{user.username}}{{/if}}</h1>
     <div class="nav-links">
         {{#unless user}}
-        <a class="button" href="/signup">Signup</a>
-        <a class="button" href="/login">Login</a>
+        <a style="margin-right: 10px;" class="button" href="/signup">Signup</a>
+        <a style="margin-right: 10px;" class="button" href="/login">Login</a>
         {{else}}
         <a class="button" href="/private">Private</a>
         <a class="button" href="/logout">Logout</a>

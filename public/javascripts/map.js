@@ -9,6 +9,9 @@ const map = new mapboxgl.Map({
     zoom: 11.1
 });
 
+const nav = new mapboxgl.NavigationControl();
+map.addControl(nav, "top-right");
+
 function addPin(options) {
     return new mapboxgl.Marker(options).setLngLat(options.coord).addTo(map);
 }
