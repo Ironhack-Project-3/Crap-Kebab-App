@@ -3,7 +3,7 @@ const mongoose = require("mongoose")
 const Kebab = require("../models/kebab")
 const User = require("../models/user")
 
-mongoose.connect(`mongodb://localhost/kebabDb`, {
+mongoose.connect(process.env.MONGODB_URI||`mongodb://localhost/kebabDb`, {
   useCreateIndex: true,
   useNewUrlParser: true,
   useUnifiedTopology: true,
@@ -148,7 +148,7 @@ const Kebabs = [
 
 ]
 
-User
+/* User
   .create(Users)
   .then(allUsers => {
     console.log(`User is added`)
@@ -157,7 +157,7 @@ User
   .catch(error => {
     throw new Error(`User is not added. ${error}`)
   })
-
+ */
 Kebab
   .create(Kebabs)
   .then(allKebabs => {

@@ -1,9 +1,11 @@
 
 <nav class="nav">
     <img style="height: 100px;" src="https://res.cloudinary.com/dpqkayvki/image/upload/v1594220042/Krapp/icon-04_hlgowi.svg" alt="navicon">
-    <h1 style="object-fit: contain;" class="big">KRAPP LOCATIONS{{#if user}}{{user.username}}{{/if}}</h1>
+    <h1 style="object-fit: contain;" class="big">KRAPP{{#if user}}{{user.username}}{{/if}}</h1>
     <div class="nav-links">
-        <a class="button" href="/newKebab/new">Add</a><br>
+        <a style="margin-right: 10px;" class="button" href="/newKebab/new">Add</a><br>
+        <a style="margin-right: 5px;" class="button" href="/logout">Logout</a>
+
     </div>
 </nav>
 
@@ -13,32 +15,39 @@
     let markerList=[];
 </script>
 
-<div class="centerme">
 
-<h1 class="big">Kebab shop page</h1>
+
+
 
 {{#each kebab}}
 
+{{!-- <div class="container">
+    <img class="blur" style='filter: blur(4px);' src="{{picture}}" alt="Kebab image"> 
+</div> --}}
+    
+<div class="centerme">
 <div class="reviews">
-    <h3><a href="/newKebab/{{_id}}">{{shopName}}</a></h3>
-    <img style='width: 300px;' src="{{picture}}" alt="Kebab image"><br>
-    <p>Rating out of 5 stars: {{review}} stars</p>
+    <a style="color: black;" class="big" href="/newKebab/{{_id}}">{{shopName}}</a>
+    <img class="blur" style='filter: blur(4px);' src="{{picture}}" alt="Kebab image"> 
+    {{review}} ⭐
+    {{date}}<br>
     {{address}}
     {{coord}}<br>
     {{#each comments}}
     {{title}}<br>
     {{body}}<br>
-    {{date}}<br>
     {{/each}}
-    <input value="{{address}}">
+
+</div>
+    <div style="margin-top: 20px;" class="buttons">
+    <form action="/newKebab/{{_id}}/delete" method="POST">
+        <button class="button" type="submit">Delete</button>
+    </form>
+    <form style="margin-left: 30px;" runat="server" action="/newKebab/edit/{{_id}}" method="GET">
+        <button class="button" type="submit">Edit</button>
+    </form>
 </div>
 
-<form action="/newKebab/{{_id}}/delete" method="POST">
-    <button class="button" type="submit">Delete</button>
-</form>
-<form runat="server" action="/newKebab/edit/{{_id}}" method="GET">
-    <button class="button" type="submit">Edit</button>
-</form>
 
 <script>
     markerList.push({

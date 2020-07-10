@@ -1,3 +1,17 @@
+<nav class="nav">
+    <a href="/newKebab"><img style="height: 100px;" src="https://res.cloudinary.com/dpqkayvki/image/upload/v1594220042/Krapp/icon-04_hlgowi.svg" alt="navicon"></a>
+    <h1 style="object-fit: contain;" class="big">KRAPP{{#if user}}{{user.username}}{{/if}}</h1>
+    <div class="nav-links">
+        <a style="margin-right: 10px;" class="button" href="/newKebab/new">Add</a><br>
+        <a style="margin-right: 5px;" class="button" href="/logout">Logout</a>
+
+    </div>
+</nav>
+
+{{> map }}
+
+<button style="margin-top: 10px; margin-left: 10px;" class="button" type="button" id="add-pin">Drop Pin</button>
+
 <span class="centerme">
     <form class="new-form" action="/newKebab/new" method="POST">
 
@@ -33,9 +47,10 @@
             <textarea id="reviewBody" name="body" rows="4"
                 cols="50">I almost puked at the first bite because: </textarea>
         </div>
-
-        <button class="button" type="submit">Add a new kebab shop</button>
-
+            <span class="buttons">
+                <button class="button" type="submit">Add</button>
+                <a style="margin-left: 30px;" class="button" href="/newKebab/">Back</a>
+            </span>
     </form>
 </span>
 
@@ -52,9 +67,7 @@
 
 
 
-<a href="/newKebab/">Back to döner index</a><br>
 
-<button type="button" id="add-pin">Add Pin</button>
 
 
 <script>
@@ -75,4 +88,3 @@
     });
 </script>
 
-{{> map }}
